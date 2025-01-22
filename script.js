@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardContainer.innerHTML = ""; // Clear previous results
 
     if (pokemonName) {
+      pokemonInput.value = ""; // Clear input field
       fetchPokemonData(pokemonName); // Fetch Pokémon if name is valid
     } else {
       cardContainer.style.display = "block"; // Hide the card container if input is empty
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") {
       const pokemonName = pokemonInput.value.trim().toLowerCase();
       cardContainer.innerHTML = ""; // Clear previous results
-
+      pokemonInput.value = ""; // Clear input field
       if (pokemonName) {
         fetchPokemonData(pokemonName); // Fetch Pokémon if name is valid
       } else {
@@ -98,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   h1.addEventListener("click", () => {
+    pokemonInput.value = ""; // Clear input field
     cardContainer.innerHTML = ""; // Clear previous results
     defaultPokemonIds.forEach((id) => {
       fetchPokemonData(id);
