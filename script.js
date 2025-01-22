@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.querySelector("#searchButton");
   const cardContainer = document.querySelector("#card-container");
 
+  const h1 = document.querySelector("h1");
+
   const defaultPokemonIds = [1, 4, 7, 25, 39, 52, 133, 150]; // Pokémon IDs (bulbasaur, charmeleon, squirtle, etc.)
 
   const bgColorPokemon = {
@@ -93,5 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
         displayErrorMessage("Please enter a Pokémon name.");
       }
     }
+  });
+
+  h1.addEventListener("click", () => {
+    cardContainer.innerHTML = ""; // Clear previous results
+    defaultPokemonIds.forEach((id) => {
+      fetchPokemonData(id);
+    });
   });
 });
